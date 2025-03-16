@@ -7,10 +7,10 @@ public class AgreementModel {
     private int userId;
     private int serviceId;
     private int propertyId;
-    private String status; // Enum: 'accepted', 'pending', 'rejected', 'completed'
+    private String status; 
     private Date startDate;
     private Date endDate;
-    private int timeDuration; // Days
+    private int timeDuration;
     private Date createDate;
 
     public AgreementModel() {

@@ -1,4 +1,5 @@
 package com.colabfarm.dao;
+
 import com.colabfarm.model.PropertyModel;
 import com.colabfarm.util.DBConnection;
 import java.sql.*;
@@ -47,5 +48,30 @@ public class PropertyDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<PropertyModel> getAllProperties() {
+        List<PropertyModel> properties = new ArrayList<>();
+        String sql = "SELECT * FROM property";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                properties.add(new PropertyModel(
+                        rs.getInt("property_id"),
+                        rs.getInt("farmer_id"),
+                        rs.getString("location"),
+                        rs.getString("type_of_land"),
+                        rs.getString("land_image"),
+                        rs.getString("document_image"),
+                        rs.getDouble("area_acre"),
+                        rs.getDouble("area_guntha"),
+                        rs.getDate("create_date")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return properties;
     }
 }

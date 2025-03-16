@@ -4,27 +4,38 @@ import java.util.Date;
 
 public class UserModel {
     private int id;
-    private String nameOrCompanyName;
+    private String name;
     private String contact;
     private String email;
     private String address;
     private String password;
-    private String typeOfUser; // Enum: 'admin', 'farmer', 'company', 'service_provider'
+    private String typeOfUser; 
     private Date createDate;
 
     public UserModel() {
     }
 
-    public UserModel(int id, String nameOrCompanyName, String contact, String email, String address, String password,
+    public UserModel(int id, String name, String contact, String email, String address, String password,
             String typeOfUser, Date createDate) {
         this.id = id;
-        this.nameOrCompanyName = nameOrCompanyName;
+        this.name = name;
         this.contact = contact;
         this.email = email;
         this.address = address;
         this.password = password;
         this.typeOfUser = typeOfUser;
         this.createDate = createDate;
+    }
+
+    @Override
+    public String toString() {
+        return "User ID: " + id + 
+               ", Name: " + name + 
+               ", Contact: " + contact + 
+               ", Email: " + email + 
+               ", Address: " + address + 
+               ", User Type: " + typeOfUser + 
+               ", Created On: " + createDate;
     }
 
     public int getId() {
@@ -35,12 +46,12 @@ public class UserModel {
         this.id = id;
     }
 
-    public String getNameOrCompanyName() {
-        return nameOrCompanyName;
+    public String getName() {
+        return name;
     }
 
-    public void setNameOrCompanyName(String nameOrCompanyName) {
-        this.nameOrCompanyName = nameOrCompanyName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getContact() {

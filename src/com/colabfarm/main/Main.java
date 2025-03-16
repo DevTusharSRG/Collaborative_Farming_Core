@@ -1,4 +1,5 @@
 package com.colabfarm.main;
+
 import com.colabfarm.dao.*;
 import com.colabfarm.model.*;
 import com.colabfarm.util.DBConnection;
@@ -37,8 +38,8 @@ public class Main {
             System.out.println("2. View All Users");
             System.out.println("3. Add Property");
             System.out.println("4. View All Properties");
-            System.out.println("5. Add Service");
-            System.out.println("6. View All Services");
+            System.out.println("5. Add Service Provider");
+            System.out.println("6. View All Service Providers");
             System.out.println("7. Exit");
             System.out.print("Enter your choice: ");
 
@@ -59,7 +60,7 @@ public class Main {
                     String password = scanner.nextLine();
                     System.out.print("Enter User Type (admin, farmer, company, service_provider): ");
                     String userType = scanner.nextLine();
-                    
+
                     UserModel user = new UserModel(0, name, contact, email, address, password, userType, new java.sql.Date(System.currentTimeMillis()));
                     userDAO.addUser(user);
                     System.out.println("User added successfully!");
@@ -101,21 +102,38 @@ public class Main {
                     }
                     break;
 
-                case 5:
-                    System.out.print("Enter Service Name: ");
-                    String serviceName = scanner.nextLine();
-                    System.out.print("Enter Service Description: ");
-                    String serviceDescription = scanner.nextLine();
+                    case 5:
+                    System.out.print("Enter User ID: ");
+                    int userId = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter Service ID: ");
+                    int serviceId = scanner.nextInt();
+                    scanner.nextLine();
                     
-                    ServiceModel service = new ServiceModel(0, serviceName, serviceDescription, new java.sql.Date(System.currentTimeMillis()));
-                    serviceDAO.addService(service);
-                    System.out.println("Service added successfully!");
+                    if (serviceDAO.getServiceById(serviceId) == null) {
+                        System.out.println("Error: Service ID does not exist!");
+                        break;
+                    }
+
+                    System.out.print("Enter Price: ");
+                    double price = scanner.nextDouble();
+                    System.out.print("Enter Duration (days): ");
+                    int duration = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Enter Description: ");
+                    String description = scanner.nextLine();
+
+                    ServiceProviderModel serviceProvider = new ServiceProviderModel(0, userId, serviceId, price, duration, "per acre", description, new java.sql.Date(System.currentTimeMillis()));
+
+                    serviceProviderDAO.addServiceProvider(serviceProvider);
+                    System.out.println("Service provider added successfully!");
                     break;
 
                 case 6:
-                    List<ServiceModel> services = serviceDAO.getAllServices();
-                    for (ServiceModel s : services) {
-                        System.out.println(s);
+                    List<ServiceProviderModel> serviceProviders = serviceProviderDAO.getAllServiceProviders();
+                    for (ServiceProviderModel sp : serviceProviders) {
+                        System.out.println(sp);
                     }
                     break;
 

@@ -7,7 +7,7 @@ public class SchemeApplicationModel {
     private int schemeId;
     private int farmerId;
     private Date registerDate;
-    private String status; // Enum: 'Pending', 'Accepted', 'Rejected'
+    private String status; 
 
     public SchemeApplicationModel() {
     }

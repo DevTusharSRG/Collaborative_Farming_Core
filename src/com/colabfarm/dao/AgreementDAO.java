@@ -14,10 +14,10 @@ public class AgreementDAO {
             stmt.setInt(2, agreement.getServiceId());
             stmt.setInt(3, agreement.getPropertyId());
             stmt.setString(4, agreement.getStatus());
-            stmt.setDate(5, agreement.getStartDate());
-            stmt.setDate(6, agreement.getEndDate());
+            stmt.setDate(5, new java.sql.Date(agreement.getStartDate().getTime()));
+            stmt.setDate(6, new java.sql.Date(agreement.getEndDate().getTime()));
             stmt.setInt(7, agreement.getTimeDuration());
-            stmt.setDate(8, agreement.getCreateDate());
+            stmt.setDate(8, new java.sql.Date(agreement.getCreateDate().getTime()));
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -45,8 +45,8 @@ public class AgreementDAO {
             String sql = "UPDATE agreement SET status=?, start_date=?, end_date=?, time_duration=? WHERE agreement_id=?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, agreement.getStatus());
-            stmt.setDate(2, agreement.getStartDate());
-            stmt.setDate(3, agreement.getEndDate());
+            stmt.setDate(2, new java.sql.Date(agreement.getStartDate().getTime()));
+            stmt.setDate(3, new java.sql.Date(agreement.getEndDate().getTime()));
             stmt.setInt(4, agreement.getTimeDuration());
             stmt.setInt(5, agreement.getAgreementId());
             stmt.executeUpdate();

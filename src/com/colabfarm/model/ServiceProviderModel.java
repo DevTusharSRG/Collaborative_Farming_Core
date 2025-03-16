@@ -5,42 +5,100 @@ import java.util.Date;
 public class ServiceProviderModel {
     private int id;
     private int serviceId;
-    private int userId;
+    private int serviceProviderId; 
     private double price;
     private int duration;
+    private String unitType;
     private String description;
     private Date createDate;
 
-    public ServiceProviderModel() {}
-
-    public ServiceProviderModel(int id, int serviceId, int userId, double price, int duration, String description, Date createDate) {
-        this.id = id;
-        this.serviceId = serviceId;
-        this.userId = userId;
-        this.price = price;
-        this.duration = duration;
-        this.description = description;
-        this.createDate = createDate;
+    public ServiceProviderModel() {
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public ServiceProviderModel(int id, int serviceId, int serviceProviderId, double price, int duration,
+    String unitType, String description, Date createDate) {
+this.id = id;
+this.serviceId = serviceId;
+this.serviceProviderId = serviceProviderId;
+this.price = price;
+this.duration = duration;
+this.unitType = unitType;
+this.description = description;
+this.createDate = createDate;
+}
 
-    public int getServiceId() { return serviceId; }
-    public void setServiceId(int serviceId) { this.serviceId = serviceId; }
 
-    public int getUserId() { return userId; }
-    public void setUserId(int userId) { this.userId = userId; }
+@Override
+public String toString() {
+    return "User ID: " + id + 
+           ", serviceId: " + serviceId + 
+           ", serviceProviderId: " + serviceProviderId + 
+           ", price: " + price + 
+           ", duration: " + duration + 
+           ", unitType: " + unitType + 
+           ", description: " + description;
+}
+    public int getId() {
+        return id;
+    }
 
-    public double getPrice() { return price; }
-    public void setPrice(double price) { this.price = price; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public int getDuration() { return duration; }
-    public void setDuration(int duration) { this.duration = duration; }
+    public int getServiceId() {
+        return serviceId;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
+    }
 
-    public Date getCreateDate() { return createDate; }
-    public void setCreateDate(Date createDate) { this.createDate = createDate; }
+    public int getServiceProviderId() {
+        return serviceProviderId;
+    }
+
+    public void setServiceProviderId(int serviceProviderId) {
+        this.serviceProviderId = serviceProviderId;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public String getUnitType() {
+        return unitType;
+    }
+
+    public void setUnitType(String unitType) {
+        this.unitType = unitType;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 }

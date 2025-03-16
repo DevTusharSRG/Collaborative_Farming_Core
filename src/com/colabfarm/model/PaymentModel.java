@@ -6,9 +6,9 @@ public class PaymentModel {
     private int paymentId;
     private int agreementId;
     private double totalAmount;
-    private String paymentMethod; // Enum: 'UPI', 'Credit Card', 'Debit Card', 'Net Banking'
-    private String paymentMode; // Enum: 'Online', 'Offline'
-    private String paymentStatus; // Enum: 'Paid', 'Pending', 'Failed'
+    private String paymentMethod; 
+    private String paymentMode; 
+    private String paymentStatus; 
     private String transactionId;
     private Date receivedDate;
 

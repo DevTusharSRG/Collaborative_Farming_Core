@@ -29,6 +29,17 @@ public class PropertyModel {
         this.createDate = createDate;
     }
 
+    @Override
+    public String toString() {
+        return "Property ID: " + propertyId + 
+               ", farmerId: " + farmerId + 
+               ", location: " + location + 
+               ", typeOfLand: " + typeOfLand + 
+               ", areaAcre: " + areaAcre + 
+               ", areaGuntha: " + areaGuntha + 
+               ", createDate: " + createDate;
+    }
+
     public int getPropertyId() {
         return propertyId;
     }
