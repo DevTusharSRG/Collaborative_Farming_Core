@@ -2,7 +2,6 @@ package com.colabfarm.dao;
 
 import com.colabfarm.model.UserModel;
 import com.colabfarm.util.DBConnection;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +47,7 @@ public class UserDAO {
         }
         return null;
     }
+
 
     public List<UserModel> getAllUsers() {
         List<UserModel> users = new ArrayList<>();

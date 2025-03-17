@@ -1,5 +1,5 @@
 package com.colabfarm.util;
-
+//import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,10 +16,8 @@ public class DBConnection {
         try {
             Class.forName("org.postgresql.Driver");
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (ClassNotFoundException e) {
-            System.err.println("connection not found");
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) {
             System.err.println("Connection failed.");
             e.printStackTrace();
         }
